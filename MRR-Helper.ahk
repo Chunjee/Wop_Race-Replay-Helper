@@ -10,7 +10,7 @@
 ;~~~~~~~~~~~~~~~~~~~~~
 StartUp()
 The_AppName = Race Replay Helper
-The_Version = v1.0
+The_Version = v1.1.0
 
 ;Dependencies
 #Include %A_ScriptDir%\Functions
@@ -25,6 +25,7 @@ Gui_Build()
 Sb_TrayMenu()
 Return
 
+^2::
 ~F2::
 If (Toggle_Active = True) {
 SetTitleMatchMode, 2
@@ -69,6 +70,7 @@ Gui_Show("Moving Race Videos")
 }
 Return
 
+^3::
 ~F3::
 If (Toggle_Active = True) {
 SetTitleMatchMode, 2
@@ -96,9 +98,9 @@ Gui_Show("Closing Race Videos")
 }
 Return
 
-~^F3::
-GoSub, menu_MenuHandler
-Return
+;~^F3::
+;GoSub, menu_MenuHandler
+;Return
 
 ::/mrr::
 InputBox, Day, MMDD Date Please, , , 200, 120, X, Y, , , ;%g_WeekdayName%
@@ -193,7 +195,7 @@ Toggle_Active := True
 Return
 
 menu_Help:
-Msgbox, Use F2 to arrange all MRR windows onto the default Monitor after opening . F3 closes all MRR windows. Recommended Browser: Chrome `n`nSee Confluence for more help.
+Msgbox, Use F2 or Ctrl+2 to arrange all MRR windows onto the default Monitor after opening . F3 or Ctrl+3 closes all MRR windows. Recommended Browser: Chrome `n`nSee Confluence for more help.
 Return
 
 menu_ConfluenceLink:
